@@ -1,0 +1,392 @@
+/*
+	1. background색을 원하는 색으로 넣어주세요.
+
+	2. 새의 몸통을 원하는대로 꾸며주세요.
+	- 센터정렬하면서 중앙보다 살짝 더 아래 위치하게 해주세요.
+
+*/
+html, body{
+	height: 100%;
+}
+body{
+	background: aqua;
+	margin: 0;
+}
+.all{
+	height: 50%;
+	margin: 0;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.prairie{
+	display: inline-block;
+	background-image: url(prairie.png);
+	margin: 0;
+	position: absolute;
+	width: 99999px;
+	height: 230px;
+	animation: prairie 900s linear infinite both;
+}
+@keyframes prairie{
+	0%{transform: translate(-2000px);}
+	100%{transform: translate(-99999px);}
+ }
+.body{
+	background: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	height: 200px;
+	border-radius: 50px;
+	z-index: 2;
+}
+/* 새 */
+.bird{
+	position: relative;
+	top: 0;
+	left: 500px;
+	width: 200px;
+	height: 100px;
+	animation: bird 20s linear infinite both;
+}
+ @keyframes bird{
+	0%{
+		left: 2000px;
+	}
+	100%{
+		left: -300px;
+	}
+ }
+/* 새 머리 */
+ .bird .bird_head{
+	background: #004060;
+	width: 60px;
+	height: 50px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	border-radius: 30px;
+	z-index: 2;
+ }
+/* 새 부리 */
+.bird .root{
+	width: 20px;
+	height: 20px;
+	background-color: #ffd700;
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	position: absolute;
+	top: 35px;
+	left: 11px;
+	animation: root 1s linear infinite alternate ;
+}
+
+@keyframes root{
+	0%{
+		transform: rotate(22deg) scale(1.0);
+	}
+	100%{
+		
+		transform: rotate(26deg) scale(1.0);
+	}
+}
+/* 새 눈 */
+.bird .bird_eyes{
+	background: #000;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 33px;
+	left: 30px;
+	border-radius: 50%;
+	z-index: 3;
+}
+/* 새 몸 */
+.bird .bird_body{
+	background: red;
+	width: 100px;
+	height: 60px;
+	position: absolute;
+	top: 15px;
+	left: 55px;
+	border-radius: 30px;
+	z-index: 1;
+ }
+/* 새 오른쪽 날개 */
+ .bird .Rwing{
+	position: absolute;
+	top: 45px;
+	left: 92px;
+	width: 40px;
+	height: 50px;
+	display: flex;
+	z-index: 2;
+	transform-origin: top;
+	animation: Rwing 3s linear infinite alternate;
+}
+
+ @keyframes Rwing{
+	0%{
+		transform:rotateX(0) scale(1.0)
+	}
+	100%{
+		transform: rotateX(150deg) scale(1.0);
+	}
+ }
+
+ .bird .Rwing .Rwing1{
+	background: #fff;
+	width: 10px;
+	height:55px;
+	border-radius: 100px 0 100px 10px;
+ }
+ .bird .Rwing .Rwing2{
+	background: #fff;
+	width: 10px;
+	height:45px;
+	border-radius: 0 0 50px 10px;
+ }
+ .bird .Rwing .Rwing3{
+	background: #fff;
+	width: 10px;
+	height: 38px;
+	border-radius: 0 0 40px 10px;
+ }
+ .bird .Rwing .Rwing4{
+	background: #fff;
+	width: 10px;
+	height: 30px;
+	border-radius: 0 150px 150px 0;
+ }
+/* 새 왼쪽 날개 */
+ .bird .Lwing{
+	position: absolute;
+	top: 45px;
+	left: 95px;
+	width: 40px;
+	height: 50px;
+	display: flex;
+	transform-origin: top;
+	animation: Lwing 3s linear infinite alternate ;
+ }
+
+ @keyframes Lwing{
+	0%{
+		transform:rotateX(0) scale(1.0)
+	}
+	100%{
+		transform: rotateX(170deg) scale(1.0);
+	}
+ }
+
+ .bird .Lwing .Lwing1{
+	background: #fff;
+	width: 10px;
+	height:55px;
+	border-radius: 100px 0 100px 10px;
+ }
+ .bird .Lwing .Lwing2{
+	background: #fff;
+	width: 10px;
+	height:45px;
+	border-radius: 0 0 50px 10px;
+ }
+ .bird .Lwing .Lwing3{
+	background: #fff;
+	width: 10px;
+	height: 38px;
+	border-radius: 0 0 40px 10px;
+ }
+ .bird .Lwing .Lwing4{
+	background: #fff;
+	width: 10px;
+	height: 30px;
+	border-radius: 0 150px 150px 0;
+ }
+
+ /* 공룡 전체  */
+.content{
+	z-index: 1;
+	cursor: pointer;
+	transition: transform 1s linear;
+}
+
+.content.jump{
+	transform: translateY(-150px);
+}
+
+ /* 공룡 크기 */
+.dino{
+	width: 120px;
+	height: 140px;
+	
+}
+
+/* 몸통 */
+.dino-body{
+width: 120px;
+height: 120px;
+background-color: #839c49;
+grid-template-rows: 40px 20px 60px;
+border-radius: 20px;
+position: relative;
+z-index: 5;
+}
+
+/* 눈 */
+.dino-eyes{
+height: 40px;
+display: flex;
+align-items: end;
+justify-content: center;
+}
+
+.dino-eyes div{
+display: inline-block;
+width: 20px;
+height: 20px;
+margin-left: 20px;
+background-color: black;
+border-radius: 30px;
+}
+
+/* 볼 */
+.dino-check{
+height: 20px;
+display: grid;
+grid-template-columns: 40px 80px;
+justify-items: end;
+}
+
+.dino-check div{
+display: inline-block;
+width: 20px;
+height: 20px;
+background-color: #f29ec2;
+border-radius: 30px;
+}
+
+
+/* 배, 팔 */
+.dino-sa{
+display: grid;
+grid-template-columns: 40px 80px;
+justify-content: flex-start;
+}
+.dino-stom{
+width: 60px;
+height: 60px;
+background-color: #fedc78;
+margin-left: 50px;
+border-radius: 20px;
+}
+.dino-arm{
+width: 20px;
+height: 40px;
+background-color: #596f26;
+margin-left: -40px;
+border-radius: 10px 10px 30px 30px;
+position:relative;
+z-index: 1;
+transform-origin: top;
+animation: dino-foot1 3s linear infinite alternate;	
+}
+
+@keyframes dino-arm{
+	0%{
+		transform: rotatez(20deg) scale(1.0);
+	}
+	100%{
+		transform: rotateZ(-20deg) scale(1.0);
+	}
+}
+
+
+/* 발 */
+.dino-foot{
+height: 30px;
+display: flex;
+justify-content: space-around;
+}
+.dino-foot div{
+width: 20px;
+background-color: #596f26;
+border-radius: 10px 10px 30px 30px;
+transform-origin: top;
+}
+.dino .dino-foot div:nth-child(1){
+	animation: dino-foot1 2s linear infinite alternate;	
+}
+
+.dino .dino-foot div:nth-child(2){
+	animation: dino-foot2 2s linear infinite alternate;	
+}
+
+@keyframes dino-foot1{
+	0%{
+		transform: rotatez(-30deg) scale(1.0);
+		
+	}
+	100%{
+		transform: rotateZ(30deg) scale(1.0);
+	}
+}
+
+@keyframes dino-foot2{
+	0%{
+		transform: rotatez(30deg) scale(1.0);
+	}
+	100%{
+		transform: rotateZ(-30deg) scale(1.0);
+	}
+}
+
+
+/* 위에 뿔 */
+.dino-shape-top{
+width: 120px;
+height: 20px;
+display: flex;
+justify-content: end;
+}
+
+.dino-shape-top div{
+width: 20px;
+background: #fedc78;
+display: inline-block;
+margin-left: 20px;
+clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* 오른쪽 뿔 */
+.momton{
+display: flex;
+flex-direction: row-reverse;
+
+}
+.dino-shape-right{
+width: 20px;
+height: 120px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+
+}
+
+.dino-shape-right div{
+width: 20px;
+height: 20px;
+background: #fedc78;
+display: inline-block;
+clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+}
+
+.momton .dino-shape-right div:nth-child(1){
+	transform: rotateZ(6deg);
+}
+.momton .dino-shape-right div:nth-child(3){
+	transform: rotateZ(-6deg);
+}
